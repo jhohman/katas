@@ -1,20 +1,15 @@
 package master.mind;
 
-import java.util.List;
-
 public class MasterMind {
-    private List<Color> code;
-    private CodeBreaker codeBreaker;
+    private Code code;
 
 	public MasterMind(String secret) {
-        this.code = Code.interpret(secret);
-        this.codeBreaker = new CodeBreaker(this.code);
+        this.code = Code.create(secret);
 	}
 
 	public int[] guess(String guess) {
-        List<Color> codeGuess = Code.interpret(guess);
+        Code codeGuess = Code.create(guess);
 
-		return codeBreaker.breakCode(codeGuess);
+		return this.code.evaluateGuess(codeGuess);
 	}
-
 }

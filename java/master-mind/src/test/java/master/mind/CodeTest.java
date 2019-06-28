@@ -14,21 +14,21 @@ import static org.junit.Assert.assertThat;
 public class CodeTest {
     @Test
     public void GGGGReturnsListOf4Greens() {
-        List<Color> colors = Code.interpret("GGGG");
+        Code code = Code.create("GGGG");
 
-        assertThat(colors, is(List.of(GREEN, GREEN, GREEN, GREEN)));
+        assertThat(code, is(new Code(List.of(GREEN, GREEN, GREEN, GREEN))));
     }
 
     @Test
     public void YYYYReturnsListOf4Yellows() {
-        List<Color> colors = Code.interpret("YYYY");
+        Code code = Code.create("YYYY");
 
-        assertThat(colors, is(List.of(YELLOW, YELLOW, YELLOW, YELLOW)));
+        assertThat(code, is(new Code(List.of(YELLOW, YELLOW, YELLOW, YELLOW))));
     }
 
     @Test public void RGYBReturnsListOfRedGreenYellowBlue() {
-        List<Color> colors = Code.interpret("RGYB");
+        Code code = Code.create("RGYB");
 
-        assertThat(colors, is(List.of(RED, GREEN, YELLOW, BLUE)));
+        assertThat(code, is(new Code(List.of(RED, GREEN, YELLOW, BLUE))));
     }
 }

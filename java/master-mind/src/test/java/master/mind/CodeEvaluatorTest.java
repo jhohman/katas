@@ -10,13 +10,13 @@ import java.util.List;
 
 import org.junit.Test;
 
-public class CodeBreakerTest {
+public class CodeEvaluatorTest {
     @Test public void forOneCorrectPositionReturn_10() {
         List<Color> code = List.of(RED, YELLOW, YELLOW, YELLOW);
         List<Color> guess = List.of(RED, GREEN, GREEN, GREEN);
-        CodeBreaker codeBreaker = new CodeBreaker(code);
+        CodeEvaluator codeEvaluator = new CodeEvaluator(code);
 
-        int[] result = codeBreaker.breakCode(guess);
+        int[] result = codeEvaluator.evaluate(guess);
 
         assertThat(result, is(new int[]{1,0}));
     }
@@ -24,9 +24,9 @@ public class CodeBreakerTest {
     @Test public void forOneMisplacedPositionReturn_01() {
         List<Color> code = List.of(RED, YELLOW, YELLOW, YELLOW);
         List<Color> guess = List.of(GREEN, RED, GREEN, GREEN);
-        CodeBreaker codeBreaker = new CodeBreaker(code);
+        CodeEvaluator codeEvaluator = new CodeEvaluator(code);
 
-        int[] result = codeBreaker.breakCode(guess);
+        int[] result = codeEvaluator.evaluate(guess);
 
         assertThat(result, is(new int[]{0,1}));
     }
